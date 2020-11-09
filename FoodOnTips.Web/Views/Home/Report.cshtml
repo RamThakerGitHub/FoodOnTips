@@ -1,0 +1,107 @@
+﻿@model FoodOnTips.Entity.Report.FoodReport
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("In Progress Order", "ReviewOrder", new { Key = 1 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("FullFill Order", "ReviewOrder", new { Key = 2 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Cancel Order", "ReviewOrder", new { Key = 3 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Report", "Report")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Logout", "LogOut")
+</p>
+<h3>Entire order with order status Times</h3>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>OrderId</td>
+                <td>StatusNewDate</td>
+                <td>StatusFullFillDate</td>
+                <td>StatusCancelledDate</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tabledata in Model.lstOrderDetailReport)
+            {
+                <tr>
+                    <td>@tabledata.OrderId</td>
+                    <td>@tabledata.StatusNewDate</td>
+                    <td>@tabledata.StatusFullFillDate</td>
+                    <td>@tabledata.StatusCancelledDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<h3>Individual items, with order status Times</h3>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>OrderId</td>
+                <td>ItemId</td>
+                <td>ItemQty</td>
+                <td>StatusNewDate</td>
+                <td>StatusFullFillDate</td>
+                <td>StatusCancelledDate</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tabledata in Model.lstOrderItemDetailReport)
+            {
+                <tr>
+                    <td class="OrderNumber">@tabledata.OrderId</td>
+                    <td>@tabledata.ItemId</td>
+                    <td>@tabledata.ItemQty</td>
+                    <td class="CheckDate">@tabledata.StatusNewDate</td>
+                    <td>@tabledata.StatusFullFillDate</td>
+                    <td>@tabledata.StatusCancelledDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<h3>Popularity  of Individual items</h3>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Item Id</td>
+                <td>Item Qty</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tabledata in Model.lstItemDetailReport)
+            {
+                <tr>
+                    <td>@tabledata.ItemId</td>
+                    <td>@tabledata.ItemQty</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<p>
+    @Html.ActionLink("In Progress Order", "ReviewOrder", new { Key = 1 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("FullFill Order", "ReviewOrder", new { Key = 2 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Cancel Order", "ReviewOrder", new { Key = 3 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Report", "Report")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Logout", "LogOut")
+</p>

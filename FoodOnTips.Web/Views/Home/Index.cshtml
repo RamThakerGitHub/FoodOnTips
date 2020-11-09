@@ -1,0 +1,514 @@
+﻿@model FoodOnTips.Model.ItemMsaterModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .cart_quantity_up {
+        padding: 4px;
+        background-color: lightgrey;
+        width: 16px;
+        cursor: pointer;
+    }
+</style>
+@using FoodOnTips.Web.Enum;
+<body>
+    <header id="header">
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="~/home/index"><img src="~/images/home/logo.png" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <li class="ReviewOrder" data-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-shopping-cart"></i> Review Oder <b class="ItemCount" style="color:orange"></b></a></li>
+                                <li><a href="@Url.Action("Login", "Home")"><i class="fa fa-lock"></i> Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header-middle-->
+    </header>
+    <!--/header-->
+    <section id="slider">
+        <!--slider-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider-carousel" data-slide-to="1"></li>
+                            <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-6">
+                                    <h1><span>Food </span> - on Tips</h1>
+                                    <h2>There is no sincerer love than the love of food.</h2>
+                                    <p>
+                                        Food is for eating, and good food is to be enjoyed.I think food is, actually, very beautiful in itself.
+                                    </p>
+                                    <h2>Life is uncertain. Eat dessert first</h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="~/images/home/home3.jpg" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>Food</span> - on Tips</h1>
+                                    <h2>There is no sincerer love than the love of food.</h2>
+                                    <p>Food is for eating, and good food is to be enjoyed.I think food is, actually, very beautiful in itself.</p>
+                                    <h2>Life is uncertain. Eat dessert first</h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="~/images/home/home2.jpg" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>Food</span> - on Tips</h1>
+                                    <h2>There is no sincerer love than the love of food.</h2>
+                                    <p>Food is for eating, and good food is to be enjoyed.I think food is, actually, very beautiful in itself.</p>
+                                    <h2>Life is uncertain. Eat dessert first</h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="~/images/home/home5.jpg" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/slider-->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 padding-right">
+                    <div class="category-tab">
+                        <!--category-tab-->
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#AlItem" data-toggle="tab">All</a></li>
+                                <li><a href="#Sandwich" data-toggle="tab">Sandwich</a></li>
+                                <li><a href="#Pizza" data-toggle="tab">Pizza</a></li>
+                                <li><a href="#SouthIndian" data-toggle="tab">South Indian</a></li>
+                                <li><a href="#Milkshake" data-toggle="tab"> Burger</a></li>
+                                <li><a href="#Desertfood" data-toggle="tab">Desert</a></li>
+                                <li><a href="#Punjabi" data-toggle="tab">Punjabi</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="AlItem">
+                                @foreach (var item in Model.ItemMasterList)
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="tab-pane fade" id="Sandwich">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.Sandwich))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button  class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+
+                            <div class="tab-pane fade" id="Pizza">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.Pizza))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button  class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade" id="SouthIndian">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.SouthIndian))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade" id="Burger">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.Burger))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade" id="Desertfood">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.Desert))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade" id="Punjabi">
+                                @foreach (var item in Model.ItemMasterList.Where(m => m.ItemType == (int)CommonEnum.ItemTypeEnum.Punjabi))
+                                {
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="~/images/home/@item.ImagesPath" alt="" style="width:245px;height:153px" />
+                                                    <h2>Rs.@item.Rate</h2>
+                                                    <p>@item.Name</p>
+                                                    <button class="btn btn-default add-to-cart" data-itemid="@item.ItemId" data-price="@item.Rate" data-name="@item.Name"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/category-tab-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:90%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Review Order</h4>
+                </div>
+                <div class="modal-body">
+
+                    <section id="cart_items">
+                        <div class="container">
+                            <div class="table-responsive cart_info">
+                                <table class="table table-condensed">
+                                    <thead>
+                                        <tr class="cart_menu">
+                                            <td class="image">Item</td>
+                                            <td class="description"></td>
+                                            <td class="price">Price</td>
+                                            <td class="quantity">Quantity</td>
+                                            <td class="total">Total</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="RevieworderItem"></tbody>
+                                    <tbody class="SummaryDate">
+                                        <tr>
+                                            <td colspan="4">&nbsp;</td>
+                                            <td colspan="2">
+                                                <table class="table table-condensed total-result">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Quantity</td>
+                                                            <td class="TotalItem"></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Total</td>
+                                                            <td> <span> RS. </span><span class="TotalSum"></span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="CheckOutInfomation" style="display:none">
+                                <div class="shopper-info">
+                                    <p>User Information</p>
+                                    <form>
+                                        <input type="text" placeholder="Display Name" id="CustomerName" name="CustomerName" required>
+                                        <input type="text" placeholder="Phone Number" id="Contact" name="Contact" required>
+                                        <input type="text" placeholder="Email Id" id="EmailId" name="EmailId" required>
+                                    </form>
+                                    <button class="btn btn-primary" onclick="SubmitOrder()" >Submit Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnPriceedToCheckOut" onclick="CheckOut()" style="display:none;color:orange">Proceed To Checkout</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+@section scripts{
+    <script type="text/javascript">
+        var ItemData = [];
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-leftReviewOder",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        $('.add-to-cart').on('click', function () {
+            var id = 0;
+            var itemDetails = new Object();
+            itemDetails.ItemId = parseFloat($(this).data('itemid'));
+            itemDetails.Price = parseFloat($(this).data('price'));
+            itemDetails.Name = $(this).data('name');
+            itemDetails.ImageSrc = $(this).closest('div').find('img').attr('src');
+            itemDetails.OrderQuentity = parseFloat(1);
+            ItemData.push(itemDetails);
+            RefreshCart($(this));
+        });
+
+        function CheckOut() {
+            $('.CheckOutInfomation').show();
+            $('.btnSubmitOrder').show();
+            $('.btnPriceedToCheckOut').hide();
+            $('.cart_quantity_up').hide();
+            $('.cart_quantity_delete').hide();
+        }
+
+        function SubmitOrder() {
+            
+            if ($("#CustomerName").val() == "")
+            {
+                alert("Name is mandatory");
+                return false;
+            }
+
+            if ($("#Contact").val() == "") {
+                alert("Phone number is mandatory");
+                return false;
+            }
+
+            if ($("#EmailId").val() == "") {
+                alert("Emial number is mandatory");
+                return false;
+            }
+
+            var entity = new Object()
+            var userInfo = new Object()
+            userInfo.CustomerName = $("#CustomerName").val();
+            userInfo.Contact = $("#Contact").val();
+            userInfo.EmailId = $("#EmailId").val();
+            entity.UserInfo = userInfo;
+            entity.ItemData = ItemData;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CheckOut", "Home")',
+                data: { 'jsonData': JSON.stringify(entity) },
+                dataType: "JSON",
+                async: false,  
+                cache: false,  
+                success: function (resultData) {
+                    if(resultData > 0) {
+                        window.location.replace('/Home/OrderConfomataionPage?odernumer=' + resultData);
+                        return false;
+                    } else {
+                        alert("some error have found. Please try after some time.");
+                    }
+                },
+                error: function (ex) {
+                    alert("some error have found. Please try after some time.");
+                }
+            });
+        }
+
+
+        function RemoveItemEntry(id) {
+            ItemData.splice(id, 1);
+            RefreshReviewItem();
+        };
+
+        function AddItemEntry(Itemid) {
+            var itemDetails = new Object();
+            itemDetails.ItemId = Itemid;
+            ItemData.push(itemDetails);
+            RefreshReviewItem();
+        }
+        function MinusItemEntry(Itemid) {
+
+            $.each(ItemData, function () {
+                if (this.ItemId == Itemid) {
+                    if (this.OrderQuentity > 1) {
+                        this.OrderQuentity = parseInt(this.OrderQuentity - 1);
+                    }
+                }
+            });
+            RefreshReviewItem();
+        }
+
+        function RefreshCart(obj) {
+            if (obj != null) {
+                $('.container').append('<div class="tooglefood"><div id="toast-container" class="toast-top-right"><div class="toast toast-success" style=""><div class="toast-message">' + obj.data('name') + ' Added</div></div></div></div>')
+
+                setTimeout(function () {
+                    $('.tooglefood').html('');
+                },1000)
+
+                //toastr.success(obj.data('name') + ' Added');
+            }
+            RefreshReviewItem();
+        }
+
+        function RefreshReviewItem() {
+            ItemData.sort(function (a, b) {
+                return a.ItemId - b.ItemId;
+            });
+            var lastid = parseInt(0);
+            for (var data = 0; data < ItemData.length ; data++) {
+                if (ItemData[data].ItemId == lastid) {
+                    ItemData[(data - 1)].OrderQuentity += 1;
+                    //ItemData[(data - 1)].Price += parseFloat(ItemData[data].Price);
+                    lastid = ItemData[data].ItemId;
+                    ItemData.splice(data, 1);
+                } else {
+                    lastid = ItemData[data].ItemId;
+                }
+            }
+            MakeReviewOderPopUp();
+        }
+
+        function MakeReviewOderPopUp() {
+            var sumPrice = parseFloat(0.0);
+            var TotalItem = parseFloat(0.0);
+            html = ""
+            for (var data = 0; data < ItemData.length ; data++) {
+                html += '<tr><td class=""><a href=""><img src="' + ItemData[data].ImageSrc + '" alt="" style="width:180px;height:90px"></a></td>';
+                html += '<td class="cart_description"><h4>' + ItemData[data].Name + '</h4></td>';
+                html += ' <td class="cart_price" style="padding-top="30px"><p>' + ItemData[data].Price + '</p></td>';
+                html += '<td class="cart_quantity" style="padding-top="30px"> <div class="cart_quantity_button"> <span class="cart_quantity_up pull-left" onclick ="AddItemEntry(' + ItemData[data].ItemId + ')"> + </span>  <input disabled class="cart_quantity_input" type="text" name="quantity" value="' + ItemData[data].OrderQuentity + '" autocomplete="off" size="2"  maxlength="2"><span class="cart_quantity_up pull-left"  onclick ="MinusItemEntry(' + ItemData[data].ItemId + ')" data-id="' + ItemData[data].ItemId + '">-</span></div>';
+                html += '</td><td class="cart_total"><p class="cart_total_price">Rs. ' + (ItemData[data].OrderQuentity * ItemData[data].Price) + '</p> </td>';
+                html += '<td class="cart_quantity_delete" data-id="" onclick ="RemoveItemEntry(' + data + ')"><i class="fa fa-times"></i></td></tr>';
+                sumPrice += (ItemData[data].OrderQuentity * ItemData[data].Price);
+                TotalItem += (ItemData[data].OrderQuentity);
+            }
+            $('.RevieworderItem').html(html);
+
+            $('.ItemCount').text('Item: (' + ItemData.length + ') Rs.' + sumPrice);
+            $('.TotalItem').text(TotalItem);
+            $('.TotalSum').text(sumPrice);
+            if (ItemData.length > 0) {
+                $('.btnPriceedToCheckOut').show();
+                $('.CheckOutInfomation').hide();
+                $('.cart_quantity_button').show();
+                $('.cart_quantity_delete').show();
+            } else {
+                $('.btnPriceedToCheckOut').hide();
+            }
+        }
+
+        $("#Contact").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                return false;
+            }
+        });
+    </script>
+}

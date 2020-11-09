@@ -1,0 +1,16 @@
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\bin\Debug\FoodOnTips.Model.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\bin\Debug\FoodOnTips.Model.pdb
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\bin\Debug\FoodOnTips.Entity.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\bin\Debug\FoodOnTips.Entity.pdb
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.csprojResolveAssemblyReference.cache
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.pdb
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\bin\Debug\FoodOnTips.Model.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\bin\Debug\FoodOnTips.Model.pdb
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\bin\Debug\FoodOnTips.Entity.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\bin\Debug\FoodOnTips.Entity.pdb
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.csprojAssemblyReference.cache
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.csproj.CoreCompileInputs.cache
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.csproj.CopyComplete
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.dll
+F:\Project\FoodOnTips\FoodOnTips.Web\FoodOnTips\FoodOnTips.Model\obj\Debug\FoodOnTips.Model.pdb

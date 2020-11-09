@@ -1,0 +1,148 @@
+﻿@model IEnumerable<FoodOnTips.Entity.CustomerOrder>
+
+@{
+    ViewBag.Title = "ReviewOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Review Order Screen For Staff</h2>
+
+<p>
+    @Html.ActionLink("In Progress Order", "ReviewOrder", new { Key = 1 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("FullFill Order", "ReviewOrder", new { Key = 2 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Cancel Order", "ReviewOrder", new { Key = 3 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Report", "Report")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Logout", "LogOut")
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>Order ID </th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email Id</th>
+            <th>Order Date</th>
+            <th colspan="2">Full Fill </th>
+            <th colspan="2">Cancalled </th>
+            <th>Order Infomation</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.odr.OrderID
+                </td>
+                <td>
+                    @item.odr.CustomerName
+                </td>
+                <td>
+                    @item.odr.Contact
+                </td>
+                <td>
+                    @item.odr.EmailId
+                </td>
+                <td>
+                    @item.odr.OrderDate
+                </td>
+                <td>
+                    @item.odr.FullFillDate
+                </td>
+                <td>
+                    @if (item.odr.IsFullFilled == null && item.odr.IsCancalled == null)
+                    {
+                        @Html.ActionLink("Full Fill Order", "ReviewOrder", new { Key = 4, orderId = item.odr.OrderID })
+                    }
+
+                </td>
+                <td>
+                    @item.odr.CancleDate
+                </td>
+                <td>
+                    @if (item.odr.IsFullFilled == null && item.odr.IsCancalled == null)
+                    {
+                        @Html.ActionLink("Cancel Order", "ReviewOrder", new { Key = 5, orderId = item.odr.OrderID })
+                    }
+                </td>
+
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+
+                                <th>Rate</th>
+
+                                <th> Order Quentity</th>
+                            </tr>
+                        </thead>
+                        @foreach (var Inneritem in item.odrList)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td> @Inneritem.Name</td>
+
+                                    <td> @Inneritem.Rate</td>
+
+                                    <td> @Inneritem.OrderQuentity</td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("In Progress Order", "ReviewOrder", new { Key = 1 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("FullFill Order", "ReviewOrder", new { Key = 2 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Cancel Order", "ReviewOrder", new { Key = 3 })
+    &nbsp;&nbsp;
+    @Html.ActionLink("Report", "Report")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Logout", "LogOut")
+</p>
+<script>
+    //$('a').on('click', function () {
+    //    if ($(this).hasattr('herf')) {
+    //        $('.container').append('<div class="tooglefood"><div id="toast-container" class="toast-top-right"><div class="toast toast-success" style=""><div class="toast-message">Record Updated</div></div></div></div>')
+
+    //        setTimeout(function () {
+    //            $('.tooglefood').html('');
+    //        }, 1000)
+    //    }
+    //})
+    //setTimeout(function () {
+    //    location.href = 'Home/ReviewOrder?key=1'
+    //}, 10000);
+    //setTimeout(function () {
+    //    $("table").find('tr').each(function (i) {
+    //        var today = new Date();
+    //        var Christmas = new Date($(this).find('.CheckDate').text());
+    //        alert(Christmas)
+    //        var diffMs = (Christmas - today); // milliseconds between now & Christmas
+    //        var diffDays = Math.floor(diffMs / 86400000); // days
+    //        var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+    //        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+    //        alert(diffDays + " days, " + diffHrs + " hours, " + diffMins + " minutes until Christmas 2009 =)");
+    //        $('.container').append('<div class="tooglefood"><div id="toast-container" class="toast-top-right"><div class="toast toast-success" style=""><div class="toast-message"> Your order number is ' + $(this).find('.OrderNumber').text() + '' + diffMins + ' Minutes delay</div></div></div></div>')
+
+    //        setTimeout(function () {
+
+    //            $('.tooglefood').html('');
+    //        }, 2000)
+
+    //    });
+    //}, 5000);
+</script>

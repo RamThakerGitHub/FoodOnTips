@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "OrderConfomataionPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header id="header">
+    <div class="header-middle">
+        <!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo pull-left">
+                        <a href="~/home/index"><img src="~/images/home/logo.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="shop-menu pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("Login", "Home")"><i class="fa fa-lock"></i> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/header-middle-->
+</header>
+
+<h2>Order Confirmation</h2>
+
+<div class="checkout-options">
+    <h3>Thank you for ordering From Food on Tips</h3>
+    <p>Your order number is :  @ViewBag.Message</p>
+
+   <h2>Please check your Mail also for Confirmation</h2>
+    
+</div>
+
+
+

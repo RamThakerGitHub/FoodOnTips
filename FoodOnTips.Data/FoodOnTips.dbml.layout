@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FoodOnTips">
+  <DataContextMoniker Name="/FoodOnTipsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6523eaf5-2ac9-4e56-aa58-1e1bc52dc59d" absoluteBounds="5.125, 1.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/FoodOnTipsDataContext/ItemMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dec6d726-56f9-4294-8690-73e328ab836a" absoluteBounds="5.14, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aedbcf21-8834-4bbb-bf83-5b901f16a290" absoluteBounds="0.75, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/FoodOnTipsDataContext/TransactionOrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1ea75ea-cf58-4028-b494-9806789fb415" absoluteBounds="0.765, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9550f38e-fa62-4e15-9652-6208994ea559" absoluteBounds="1.625, 1.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/FoodOnTipsDataContext/OrderMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="511d64c4-955c-4460-833d-183793caa940" absoluteBounds="1.6400000000000001, 1.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

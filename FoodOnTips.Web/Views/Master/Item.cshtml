@@ -1,0 +1,34 @@
+﻿@model FoodOnTips.Model.ItemMsaterModel
+@{
+    ViewBag.Title = "Item";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Item
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ItemMasterList)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Rate</td>
+            <td>@item.ImagesPath</td>
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+
+
